@@ -37,7 +37,7 @@ objects:
     kind: BuildConfig
     metadata:
       labels:
-        app: '${GOGS_USER}-testapp-pipeline'
+        app: '${USERNAME}-testapp-pipeline'
       name: testapp-pipeline
     spec:
       nodeSelector: {}
@@ -57,7 +57,7 @@ objects:
             - name: JENKINS_GUID
               value: '${GUID}'
             - name: JENKINS_GOGS_USER
-              value: '${GOGS_USER}'
+              value: '${USERNAME}'
             - name: JENKINS_SSH_PASSWORD
               value: '${SSH_PASSWORD}'
             - name: JENKINS_BASTION
@@ -75,14 +75,14 @@ objects:
           ref: '${GIT_BRANCH}'
       triggers:
         - generic:
-            secret: '${GOGS_USER}-testapp-pipeline'
+            secret: '${USERNAME}-testapp-pipeline'
           type: Generic
       runPolicy: Serial
 parameters:
   - name: GUID
     description: GUID
     value: fb78
-  - name: GOGS_USER
+  - name: USERNAME
     value: user1
   - name: GIT_BRANCH
     value: master
