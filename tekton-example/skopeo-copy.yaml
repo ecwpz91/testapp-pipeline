@@ -20,7 +20,6 @@ spec:
 
   workspaces:
     - name: images-url
-      emptyDir: {}
   params:
     - name: srcImageURL
       description: URL of the image to be copied to the destination registry
